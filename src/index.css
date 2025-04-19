@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-gradient;
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-lg;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-tertiary to-quaternary animate-text-shimmer bg-[length:200%_auto];
+}
+
+.hover-card {
+  @apply transition-all duration-500 hover:shadow-xl hover:-translate-y-2;
+}
+
+.shine-effect {
+  @apply relative overflow-hidden;
+}
+
+.shine-effect::before {
+  @apply content-[''] absolute top-0 left-[-100%] w-[200%] h-full bg-gradient-shine bg-[length:200%_100%] animate-background-shine;
+}
+
+.glow-effect {
+  @apply relative;
+}
+
+.glow-effect::before {
+  @apply content-[''] absolute inset-0 bg-gradient-radial from-white/20 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.glow-effect:hover::before {
+  @apply opacity-100;
+}
+
+.gradient-border {
+  @apply relative rounded-2xl p-[1px] bg-gradient-to-r from-primary via-tertiary to-quaternary overflow-hidden;
+}
+
+.gradient-border::before {
+  @apply content-[''] absolute inset-0 bg-gradient-to-r from-neo-purple via-neo-pink to-neo-blue opacity-0 transition-opacity duration-500;
+}
+
+.gradient-border:hover::before {
+  @apply opacity-100;
+}
+
+.gradient-border-content {
+  @apply block rounded-2xl bg-white relative z-10;
+}
+
+.aurora-bg {
+  @apply absolute inset-0 opacity-30;
+  background: linear-gradient(60deg, 
+    rgba(124, 58, 237, 0.3) 0%,
+    rgba(236, 72, 153, 0.3) 33%,
+    rgba(59, 130, 246, 0.3) 66%,
+    rgba(124, 58, 237, 0.3) 100%
+  );
+  animation: aurora 15s linear infinite;
+  filter: blur(60px);
+}
+
+.neo-morph {
+  @apply relative overflow-hidden;
+  animation: morph 8s ease-in-out infinite;
+}
+
+.shimmer-text {
+  @apply relative;
+  background: linear-gradient(110deg, var(--tw-gradient-stops));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 2.5s ease-out infinite alternate;
+}
+
+.hover-lift {
+  @apply transition-all duration-500 hover:scale-105 hover:-translate-y-2;
+}
+
+.card-highlight {
+  @apply absolute inset-0 opacity-0 bg-gradient-to-br from-white/5 to-white/20 transition-opacity duration-300;
+}
+
+.hover-card:hover .card-highlight {
+  @apply opacity-100;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(124, 58, 237, 0.3);
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
